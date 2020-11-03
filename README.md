@@ -2,19 +2,27 @@
 
 
 // iniciar proyecto node.js
+
 *npm init -y*   // Se crea el package.json
+
 // instalar typescript local si no se instaló global
+
 *npm i typescript --save-dev*         //Local
+
 *npm i typescript -g*                 //Global
+
 // Iniciar proyecto typescript
+
 https://medium.com/@bhagyamangale/tsc-init-4665ec9d7b09
 
 *tsc --init*                         //Si global. Se crea el tsconfig.json
+
 *npx tsc --init*                     //Si local. Se crea el tsconfig.json
 
 *git init*                            // Para crear el repositorio local
 
 // Cambiamos la configuración del *tsconfig.json*
+
 *"target": "es6",*
 
 *"outDir": "./build",*
@@ -47,25 +55,31 @@ npm install @types/node @types/mongoose @types/express @types/morgan nodemon typ
 *node_modules*
 
 // Creamos la carpeta *src* con *server.ts*   //Archivo typescript
-Con el contenido que presentamos
+
+//Con el contenido que presentamos
 
 // Cambiamos el package.json con:
 
   "scripts": {
+
     "ts": "tsc -w",
+
     "dev": "nodemon ./build/server.js",
+
     "start": "node ./build/server.js"
+
   },
 
   // Para compilar
-  npm run ts  // que como tiene el -w incorporado se compilará si cambiamos el código
+  
+  *npm run ts*  // que como tiene el -w incorporado se compilará si cambiamos el código
   
   // Para ejecutar en desarrollo
-  npm run dev  // que como tiene el nodemon se reiniciará el servidor si cambiamos
+  *npm run dev*  // que como tiene el nodemon se reiniciará el servidor si cambiamos
                 // además como tenemos 
   
   // Para ejecutar en producción
-  npm start
+  *npm start*
 
   // Ya podemos invocar con localhost:3000
 
@@ -73,7 +87,10 @@ Con el contenido que presentamos
 
   PS C:\Users\Adolfo3\Documents\ACurso2021\ASGBD\ProyectosTS\restapitriangulo000> npm run dev
 
-> restapitriangulo000@1.0.0 dev C:\Users\Adolfo3\Documents\ACurso2021\ASGBD\ProyectosTS\restapitriangulo000
+> restapitriangulo000@1.0.0 dev 
+
+C:\Users\Adolfo3\Documents\ACurso2021\ASGBD\ProyectosTS\restapitriangulo000
+
 > nodemon ./build/server.js
 
 [nodemon] 2.0.6
@@ -109,7 +126,7 @@ git branch -M rama001   // Escogemos el nombre de la rama
 
 git remote add origin https://github.com/asalsan790/restapitriangulo000.git
 
-git push -u origin rama001  // hacemo push de nuestra rama.
+git push -u origin rama001  // hacemos push de nuestra rama.
 
 
 --
