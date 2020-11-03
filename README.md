@@ -130,7 +130,7 @@ git push -u origin rama001  // hacemos push de nuestra rama.
 
 
 
-//Para ver a dondo apunta cada rama
+//Para ver a donde apunta cada rama
 
 git log --oneline --decorate
 
@@ -141,5 +141,12 @@ git branch rama002
 // Cambiar de rama
 
 git checkout rama002
+
+git add .
+
+git commit -m "en nueva rama"
+
+git push -u origin rama002   
+
 
 --
