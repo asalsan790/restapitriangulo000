@@ -58,9 +58,44 @@ Con el contenido que presentamos
   },
 
   // Para compilar
-  npm run ts
+  npm run ts  // que como tiene el -w incorporado se compilará si cambiamos el código
+  
   // Para ejecutar en desarrollo
-  npm run dev
+  npm run dev  // que como tiene el nodemon se reiniciará el servidor si cambiamos
+                // además como tenemos 
+  
   // Para ejecutar en producción
   npm start
-  
+
+  // Ya podemos invocar con localhost:3000
+
+  y vemos el log:
+
+  PS C:\Users\Adolfo3\Documents\ACurso2021\ASGBD\ProyectosTS\restapitriangulo000> npm run dev
+
+> restapitriangulo000@1.0.0 dev C:\Users\Adolfo3\Documents\ACurso2021\ASGBD\ProyectosTS\restapitriangulo000
+> nodemon ./build/server.js
+
+[nodemon] 2.0.6
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node ./build/server.js`
+Server on port: 3000
+[nodemon] restarting due to changes...
+[nodemon] starting `node ./build/server.js`
+Server on port: 3000
+GET / 404 1.984 ms - 139
+
+--
+
+
+git init
+git add .
+git commit -m "primer commit"
+git branch -M rama001   // Escogemos el nombre de la rama
+git remote add origin https://github.com/asalsan790/restapitriangulo000.git
+git push -u origin rama001  // hacemo push de nuestra rama.
+
+
+--
