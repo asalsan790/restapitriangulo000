@@ -77,24 +77,38 @@ Con el contenido que presentamos
 > nodemon ./build/server.js
 
 [nodemon] 2.0.6
+
 [nodemon] to restart at any time, enter `rs`
+
 [nodemon] watching path(s): *.*
+
 [nodemon] watching extensions: js,mjs,json
+
 [nodemon] starting `node ./build/server.js`
+
 Server on port: 3000
+
 [nodemon] restarting due to changes...
+
 [nodemon] starting `node ./build/server.js`
+
 Server on port: 3000
+
 GET / 404 1.984 ms - 139
 
 --
 
 
 git init
+
 git add .
+
 git commit -m "primer commit"
+
 git branch -M rama001   // Escogemos el nombre de la rama
+
 git remote add origin https://github.com/asalsan790/restapitriangulo000.git
+
 git push -u origin rama001  // hacemo push de nuestra rama.
 
 
