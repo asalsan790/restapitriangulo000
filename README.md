@@ -129,4 +129,17 @@ git remote add origin https://github.com/asalsan790/restapitriangulo000.git
 git push -u origin rama001  // hacemos push de nuestra rama.
 
 
+
+//Para ver a dondo apunta cada rama
+
+git log --oneline --decorate
+
+// Crear una nueva rama
+
+git branch rama002
+
+// Cambiar de rama
+
+git checkout rama002
+
 --
