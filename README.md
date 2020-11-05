@@ -51,7 +51,7 @@ npm install @types/node @types/mongoose @types/express @types/morgan nodemon typ
 
 
 // Configuramos el *.gitignore* con:
-*build*
+// ATENCION NO PONER build si subimos a heroku
 *node_modules*
 
 // Creamos la carpeta *src* con *server.ts*   //Archivo typescript
