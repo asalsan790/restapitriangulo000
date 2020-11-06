@@ -150,3 +150,6 @@ git push -u origin rama002
 
 
 --
+
+En la rama002 introducimos las rutas
+
