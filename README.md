@@ -152,4 +152,8 @@ git push -u origin rama002
 --
 
 En la rama002 introducimos las rutas
+localhost:3000
+localhost:3000/p
+localhost:3000/prefijo
+localhost:3000/prefijo/p
 
