@@ -157,3 +157,18 @@ localhost:3000/p
 localhost:3000/prefijo
 localhost:3000/prefijo/p
 
+
+// Crear una nueva rama
+
+git branch rama003
+
+// Cambiar de rama
+
+git checkout rama003
+
+git add .
+
+git commit -m "en nueva rama"
+
+git push -u origin rama003 
+
