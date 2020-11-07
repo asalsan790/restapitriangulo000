@@ -48,7 +48,7 @@ class Server {
     }
 
     private routes(){
-        this.app.use('triangulo', trianguloRoutes)
+        this.app.use('/triangulo', trianguloRoutes)
         this.app.use('/prefijo', pruebaRoutes)
     }
     start(){

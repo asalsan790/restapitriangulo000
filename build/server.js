@@ -54,7 +54,7 @@ class Server {
         });
     }
     routes() {
-        this.app.use('triangulo', trianguloRoutes_1.trianguloRoutes);
+        this.app.use('/triangulo', trianguloRoutes_1.trianguloRoutes);
         this.app.use('/prefijo', pruebaRoutes_1.pruebaRoutes);
     }
     start() {
