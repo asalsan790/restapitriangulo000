@@ -27,9 +27,11 @@ class Server {
             this.app.set('port', process.env.PORT || 3000);
             this.app.use(morgan_1.default('dev')); // Para que muestre las url invocadas
             const bdLocal = 'test';
-            const bdAltas = 'prueba';
+            const bdAltas = '*******';
+            const userAtlas = '*******'; // Comentar después de desplegar a heroku
+            const passAtlas = '*******'; // Comentar después de desplegar a heroku
             const conexionLocal = `mongodb://localhost/${bdLocal}`;
-            const conexionAtlas = `mongodb+srv://prueba:prueba@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`;
+            const conexionAtlas = `mongodb+srv://${userAtlas}:${passAtlas}@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`;
             // mongodb+srv://<username>:<password>@cluster0.viyli.mongodb.net/<dbname>?retryWrites=true&w=majority
             database_1.db.cadenaConexion = conexionAtlas;
             yield database_1.db.conectarBD()

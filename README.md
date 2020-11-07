@@ -158,7 +158,7 @@ localhost:3000/prefijo
 localhost:3000/prefijo/p
 
 
-// Crear una nueva rama
+// Crear una nueva rama para acceso a BD
 
 git branch rama003
 
@@ -172,3 +172,21 @@ git commit -m "en nueva rama"
 
 git push -u origin rama003 
 
+
+// Crear una nueva rama para rutas Triángulo
+
+git branch rama004
+
+// Cambiar de rama
+
+git checkout rama004
+
+git add .
+
+git commit -m "en nueva rama"
+
+git push -u origin rama004 
+
+Si está ejecutándose en heroku los mensajes de consola los veré con 
+
+heroku logs -a <APP> --tail

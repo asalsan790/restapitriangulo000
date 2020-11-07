@@ -17,10 +17,12 @@ class Server {
         this.app.use(morgan('dev'))  // Para que muestre las url invocadas
 
         const bdLocal = 'test'
-        const bdAltas = 'prueba'
+        const bdAltas = '*******'
+        const userAtlas = '*******' // Comentar después de desplegar a heroku
+        const passAtlas = '*******' // Comentar después de desplegar a heroku
         const conexionLocal = `mongodb://localhost/${bdLocal}`
         const conexionAtlas =  
-            `mongodb+srv://prueba:prueba@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`
+            `mongodb+srv://${userAtlas}:${passAtlas}@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`
 
         // mongodb+srv://<username>:<password>@cluster0.viyli.mongodb.net/<dbname>?retryWrites=true&w=majority
 
