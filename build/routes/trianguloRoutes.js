@@ -1,30 +1,34 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.trianguloRoutes = void 0;
 const express_1 = require("express");
+const triangulo_1 = require("../model/triangulo");
 class TrianguloRoutes {
     constructor() {
-        // Definimos las funciones asociadas a las rutas
-        this.getPrueba = (req, res) => {
-            res.send('Estoy en la /p de la app (con o sin prefijo). Utilizando una función');
-        };
+        this.getTriangulos = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            console.log('hola');
+            const query = yield triangulo_1.Triangulos.find();
+            res.json(query);
+        });
         this._router = express_1.Router();
     }
     get router() {
         return this._router;
     }
-    // Aplicamos a la variable de tipo Router métodos get con rutas y las funciones que realizan
-    // https://expressjs.com/es/4x/api.html#router.METHOD
-    // Para más tarde usarlas en el servidor
     misRutas() {
-        this._router.get('/', (req, res) => res.send('Estoy en la raiz (con o sin prefijo) de la app. Sin función'));
-        this._router.get('/p', this.getPrueba);
+        console.log('en mis rutas');
+        this._router.get('/', this.getTriangulos);
     }
 }
-// Creamos el objeto 
 const obj = new TrianguloRoutes();
-// ejecutamos la asociación rutas > funciones
 obj.misRutas();
-// Exportamos el parámetro de tipo Router con las rutas asignadas
-// Para su uso en el servidor
 exports.trianguloRoutes = obj.router;

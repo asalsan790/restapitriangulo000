@@ -2,6 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 
 import { pruebaRoutes } from './routes/pruebaRoutes'
+import { trianguloRoutes } from './routes/trianguloRoutes'
 import { db } from './database/database'
 
 class Server {
@@ -16,17 +17,17 @@ class Server {
         this.app.set('port', process.env.PORT || 3000)
         this.app.use(morgan('dev'))  // Para que muestre las url invocadas
 
-        const bdLocal = 'test'
-        const bdAltas = '*******'
-        const userAtlas = '*******' // Comentar después de desplegar a heroku
-        const passAtlas = '*******' // Comentar después de desplegar a heroku
+        const bdLocal = 'geometria'
+        const bdAltas = 'prueba'
+        const userAtlas = 'prueba' // Comentar después de desplegar a heroku
+        const passAtlas = 'prueba' // Comentar después de desplegar a heroku
         const conexionLocal = `mongodb://localhost/${bdLocal}`
         const conexionAtlas =  
             `mongodb+srv://${userAtlas}:${passAtlas}@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`
 
         // mongodb+srv://<username>:<password>@cluster0.viyli.mongodb.net/<dbname>?retryWrites=true&w=majority
 
-        db.cadenaConexion = conexionAtlas
+        db.cadenaConexion = conexionLocal
         await db.conectarBD()
         .then((mensaje) => {
             console.log(mensaje)
@@ -35,6 +36,7 @@ class Server {
             console.log(mensaje)
         })
 
+        /*
         await db.desconectarBD()
         .then((mensaje) => {
             console.log(mensaje)
@@ -42,11 +44,11 @@ class Server {
         .catch((mensaje) => {
             console.log(mensaje)
         })
-
+*/
     }
 
     private routes(){
-        this.app.use(pruebaRoutes)
+        this.app.use('triangulo', trianguloRoutes)
         this.app.use('/prefijo', pruebaRoutes)
     }
     start(){
