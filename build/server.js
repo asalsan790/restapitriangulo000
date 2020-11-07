@@ -34,7 +34,7 @@ class Server {
             const conexionLocal = `mongodb://localhost/${bdLocal}`;
             const conexionAtlas = `mongodb+srv://${userAtlas}:${passAtlas}@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`;
             // mongodb+srv://<username>:<password>@cluster0.viyli.mongodb.net/<dbname>?retryWrites=true&w=majority
-            database_1.db.cadenaConexion = conexionLocal;
+            database_1.db.cadenaConexion = conexionAtlas;
             yield database_1.db.conectarBD()
                 .then((mensaje) => {
                 console.log(mensaje);

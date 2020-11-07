@@ -27,7 +27,7 @@ class Server {
 
         // mongodb+srv://<username>:<password>@cluster0.viyli.mongodb.net/<dbname>?retryWrites=true&w=majority
 
-        db.cadenaConexion = conexionLocal
+        db.cadenaConexion = conexionAtlas
         await db.conectarBD()
         .then((mensaje) => {
             console.log(mensaje)
