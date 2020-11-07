@@ -9,18 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.trianguloRoutes = void 0;
+exports.identificacionRoutes = void 0;
 const express_1 = require("express");
-const triangulo_1 = require("../model/triangulo");
 const database_1 = require("../database/database");
-class TrianguloRoutes {
+class IdentificacionRoutes {
     constructor() {
-        this.getTriangulos = (req, res) => __awaiter(this, void 0, void 0, function* () {
+        this.getId = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { password } = req.params;
+            const { user } = req.params;
+            setBD(false, user, password); // true BD Local; false BD Atlas
             yield database_1.db.conectarBD()
                 .then((mensaje) => __awaiter(this, void 0, void 0, function* () {
                 console.log(mensaje);
-                const query = yield triangulo_1.Triangulos.find();
-                res.json(query);
+                res.send(mensaje);
             }))
                 .catch((mensaje) => {
                 res.send(mensaje);
@@ -34,9 +35,21 @@ class TrianguloRoutes {
         return this._router;
     }
     misRutas() {
-        this._router.get('/', this.getTriangulos);
+        this._router.get('/:user&:password', this.getId);
     }
 }
-const obj = new TrianguloRoutes();
+const setBD = (local, userAtlas, passAtlas) => __awaiter(void 0, void 0, void 0, function* () {
+    const bdLocal = 'geometria';
+    const conexionLocal = `mongodb://locadlhost/${bdLocal}`;
+    if (local) {
+        database_1.db.cadenaConexion = conexionLocal;
+    }
+    else {
+        const bdAtlas = 'prueba';
+        const conexionAtlas = `mongodb+srv://${userAtlas}:${passAtlas}@cluster0.viyli.mongodb.net/${bdAtlas}?retryWrites=true&w=majority`;
+        database_1.db.cadenaConexion = conexionAtlas;
+    }
+});
+const obj = new IdentificacionRoutes();
 obj.misRutas();
-exports.trianguloRoutes = obj.router;
+exports.identificacionRoutes = obj.router;

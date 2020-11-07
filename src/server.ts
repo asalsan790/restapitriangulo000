@@ -3,6 +3,7 @@ import morgan from 'morgan'
 
 import { pruebaRoutes } from './routes/pruebaRoutes'
 import { trianguloRoutes } from './routes/trianguloRoutes'
+import { identificacionRoutes } from './routes/identificacionRoutes'
 import { db } from './database/database'
 
 class Server {
@@ -17,39 +18,12 @@ class Server {
         this.app.set('port', process.env.PORT || 3000)
         this.app.use(morgan('dev'))  // Para que muestre las url invocadas
 
-        const bdLocal = 'geometria'
-        const bdAltas = 'prueba'
-        const userAtlas = 'prueba' // Comentar después de desplegar a heroku
-        const passAtlas = 'prueba' // Comentar después de desplegar a heroku
-        const conexionLocal = `mongodb://localhost/${bdLocal}`
-        const conexionAtlas =  
-            `mongodb+srv://${userAtlas}:${passAtlas}@cluster0.viyli.mongodb.net/${bdAltas}?retryWrites=true&w=majority`
-
-        // mongodb+srv://<username>:<password>@cluster0.viyli.mongodb.net/<dbname>?retryWrites=true&w=majority
-
-        db.cadenaConexion = conexionAtlas
-        await db.conectarBD()
-        .then((mensaje) => {
-            console.log(mensaje)
-        })
-        .catch((mensaje) => {
-            console.log(mensaje)
-        })
-
-        /*
-        await db.desconectarBD()
-        .then((mensaje) => {
-            console.log(mensaje)
-        })
-        .catch((mensaje) => {
-            console.log(mensaje)
-        })
-*/
     }
 
     private routes(){
         this.app.use('/triangulo', trianguloRoutes)
         this.app.use('/prefijo', pruebaRoutes)
+        this.app.use('/id', identificacionRoutes)
     }
     start(){
         this.app.listen(this.app.get('port'), 
@@ -58,5 +32,6 @@ class Server {
         })
     }
 }
+
 const server = new Server()
 server.start()
